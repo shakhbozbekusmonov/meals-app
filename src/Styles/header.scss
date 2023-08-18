@@ -1,0 +1,29 @@
+.site-header {
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--backgroundPrimary);
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__nav-list {
+        display: flex;
+    }
+
+    &__nav-item {
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    &__nav-link {
+        font-size: 20px;
+        color: #fff;
+        &.active {
+            color: #00f;
+        }
+    }
+}
