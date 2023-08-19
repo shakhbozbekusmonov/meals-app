@@ -15,15 +15,49 @@
 
     &__nav-item {
         &:not(:last-child) {
-            margin-right: 30px;
+            margin-right: 40px;
         }
     }
 
     &__nav-link {
+        position: relative;
         font-size: 20px;
         color: #fff;
+
+        &::before {
+            position: absolute;
+            left: -25px;
+            content: "";
+        }
+
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: -7px;
+            left: 0;
+            margin: auto;
+            width: 0;
+            height: 3px;
+            background-color: #080;
+            transition: 0.5s linear;
+            border-radius: 5px;
+            content: "";
+        }
+
         &.active {
-            color: #00f;
+            &::before {
+                content: "🍝";
+            }
+
+            &::after {
+                width: 80%;
+            }
+        }
+
+        &:hover {
+            &::after {
+                width: 80%;
+            }
         }
     }
 }

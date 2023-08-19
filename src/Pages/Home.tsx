@@ -11,7 +11,7 @@ const Home = () => {
 
     const getMeals = async () => {
         const meals = await getMealsAllByCategories();
-
+        setMeals(meals.categories);
     };
 
     useEffect(() => {
@@ -19,6 +19,9 @@ const Home = () => {
         getMeals();
         setLoading(false);
     }, []);
+
+
+    const visibleMeals = 
     return (
         <div className='container'>
             <div className='my-3'>
