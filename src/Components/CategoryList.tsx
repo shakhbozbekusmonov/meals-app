@@ -1,11 +1,11 @@
+import { MealsType } from "../Hooks/useVisibleMeals";
 
+type Props = {
+    meals: MealsType[];
+};
 
-const CategoryList = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const CategoryList = ({ meals }: Props) => {
+    return <div></div>;
+};
 
-export default CategoryList
+export default CategoryList;
