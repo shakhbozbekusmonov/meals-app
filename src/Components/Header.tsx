@@ -50,6 +50,7 @@ const Header = () => {
                     <Button
                         className='site-header__toggle-btn border-0'
                         type='button'
+                        text=''
                         onClick={() => setToggle(!toggle)}
                     >
                         <img
