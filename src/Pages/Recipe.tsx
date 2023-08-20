@@ -3,21 +3,21 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getMealsByID } from "../Services/getData";
 import Button from "../Components/Button";
 
-type MealType = {
-    idMeal: string;
-    strMeal: string;
-    strCategory: string;
-    strMealThumb: string;
-    strArea: string;
-    strTags: string;
-    strYoutube: string;
-    strSource: string;
-};
+// type MealType = {
+//     idMeal: string;
+//     strMeal: string;
+//     strCategory: string;
+//     strMealThumb: string;
+//     strArea: string;
+//     strTags: string;
+//     strYoutube: string;
+//     strSource: string;
+// };
 
 const Recipe = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [meal, setMeal] = useState<MealType[]>([]);
+    const [meal, setMeal] = useState<any[]>([]);
     const [showRecipe, setShowRecipe] = useState(false);
 
     useEffect(() => {
@@ -63,7 +63,7 @@ const Recipe = () => {
                                                     <b>Tags:</b>{" "}
                                                     {item.strTags
                                                         .split(",")
-                                                        .map((tag) => (
+                                                        .map((tag: string) => (
                                                             <div
                                                                 className='badge bg-primary me-2'
                                                                 key={tag}
