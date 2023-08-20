@@ -13,7 +13,7 @@ export type MealsType = {
 };
 
 export const useVisibleMeals = () => {
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(true);
     const [value, setValue] = useState<ValueType>({ search: "" });
     const [meals, setMeals] = useState<MealsType[]>([]);
 

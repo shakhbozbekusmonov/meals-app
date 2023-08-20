@@ -4,7 +4,8 @@ const Footer = () => {
             <div className='container'>
                 <div className='site-footer d-flex justify-content-center'>
                     <span>
-                        All right reserved &copy; Copyrigth Miracle Programmer
+                        Copyright &copy; {new Date().getFullYear()} Miracle
+                        Programmer
                     </span>
                 </div>
             </div>

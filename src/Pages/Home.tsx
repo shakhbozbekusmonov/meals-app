@@ -7,7 +7,9 @@ const Home = () => {
     return (
         <div className='container'>
             <div className='my-3'>
-                <MEALS_FILTER onSubmit={handleValue} />
+                <div className='mb-3'>
+                    <MEALS_FILTER onSubmit={handleValue} />
+                </div>
                 {isLoading ? (
                     <LOADER />
                 ) : (

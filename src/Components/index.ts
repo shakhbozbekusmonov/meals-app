@@ -5,4 +5,6 @@ export { default as CATEGORY_LIST } from "./CategoryList";
 export { default as CATEGORY_ITEM } from "./CategoryItem";
 export { default as CATEGORY_FILTER } from "./CategoryFilter";
 export { default as MEALS_FILTER } from "./MealsFilter";
+export { default as MEALS_LIST } from "./MealsList";
+export { default as MEALS_ITEM } from "./MealsItem";
 export { default as LOGO } from "./Logo";

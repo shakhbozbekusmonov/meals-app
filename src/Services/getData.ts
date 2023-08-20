@@ -19,16 +19,18 @@ export const getMealBySearch = async (search: string) => {
     }
 };
 
-export const getMealsByID = async (mealID: string) => {
+export const getMealsByID = async (mealID: string | undefined) => {
     try {
-        const response = await Api.get(`lookup.php?idsdhj=${mealID}`);
+        const response = await Api.get(`lookup.php?i=${mealID}`);
         return response.data;
     } catch (err: any) {
         toast.error(err.message);
     }
 };
 
-export const getMealsByFilterCategory = async (category: string) => {
+export const getMealsByFilterCategory = async (
+    category: string | undefined
+) => {
     try {
         const response = await Api.get(`filter.php?c=${category}`);
         return response.data;

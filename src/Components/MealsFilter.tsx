@@ -7,10 +7,10 @@ const MealsFilter = ({ onSubmit }: MealsFilterProps) => {
     const { register, handleSubmit } = useForm();
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='d-flex'>
+            <div className='d-flex w-100'>
                 <input
                     {...register("search")}
-                    className='form-control me-2'
+                    className='form-control me-2 w-100'
                     type='search'
                     name='search'
                     placeholder='🥗 Search favourite meals...'
