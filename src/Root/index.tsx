@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { HOME, RECIPE } from "../Pages";
+import { HOME, RECIPE, NOT_FOUND } from "../Pages";
 import { HEADER, FOOTER, MEALS_LIST } from "../Components";
 
 const Root = () => {
@@ -11,6 +11,7 @@ const Root = () => {
                     <Route path='/home' element={<HOME />} />
                     <Route path='/meals/:category' element={<MEALS_LIST />} />
                     <Route path='/meals/recipe/:id' element={<RECIPE />} />
+                    <Route path='*' element={<NOT_FOUND />} />
                     <Route path='/' element={<Navigate to='/home' />} />
                 </Routes>
             </main>

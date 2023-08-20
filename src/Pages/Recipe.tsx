@@ -26,7 +26,7 @@ const Recipe = () => {
 
     return (
         <div className='container'>
-            <div className='row'>
+            <div className={`row ${meal.length === 0 && "vh-100"}`}>
                 <div className='col-12'>
                     {meal.length > 0 &&
                         meal.map((item) => (

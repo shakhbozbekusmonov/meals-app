@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getMealsAllByCategories } from "../Services/getData";
 
 export type ValueType = {
@@ -13,7 +13,6 @@ export type MealsType = {
 };
 
 export const useVisibleMeals = () => {
-    const [isLoading, setLoading] = useState(true);
     const [value, setValue] = useState<ValueType>({ search: "" });
     const [meals, setMeals] = useState<MealsType[]>([]);
 
@@ -23,9 +22,7 @@ export const useVisibleMeals = () => {
     };
 
     useEffect(() => {
-        setLoading(true);
         getMeals();
-        setLoading(false);
     }, []);
 
     const SEARCH_QUERY = new RegExp(value.search, "gi");
@@ -34,9 +31,5 @@ export const useVisibleMeals = () => {
             ? meals.filter((item) => item.strCategory?.match(SEARCH_QUERY))
             : meals;
 
-    return [
-        isLoading,
-        visibleMeals,
-        (searchValue: any) => setValue(searchValue),
-    ] as const;
+    return [visibleMeals, (searchValue: any) => setValue(searchValue)] as const;
 };

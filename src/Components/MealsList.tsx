@@ -31,7 +31,7 @@ const MealsCategory = () => {
 
     return (
         <div className='container'>
-            <ul className='row my-3'>
+            <ul className={`row my-3 ${meals.length === 0 && "vh-100"}`}>
                 {displayedMeals.map((item) => (
                     <MealsItem key={item.idMeal} {...item} />
                 ))}
