@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getMealsByID } from "../Services/getData";
 import Button from "../Components/Button";
+import useScrollTop from "../Hooks/useScrollTop";
 
 // type MealType = {
 //     idMeal: string;
@@ -15,6 +16,7 @@ import Button from "../Components/Button";
 // };
 
 const Recipe = () => {
+    useScrollTop();
     const { id } = useParams();
     const navigate = useNavigate();
     const [meal, setMeal] = useState<any[]>([]);

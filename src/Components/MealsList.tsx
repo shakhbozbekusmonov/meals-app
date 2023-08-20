@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getMealsByFilterCategory } from "../Services/getData";
 import MealsItem from "./MealsItem";
 import Button from "./Button";
+import useScrollTop from "../Hooks/useScrollTop";
 
 export type MealsType = {
     idMeal: string;
@@ -11,6 +12,7 @@ export type MealsType = {
 };
 
 const MealsCategory = () => {
+    useScrollTop();
     const { category } = useParams();
     const [meals, setMeals] = useState<MealsType[]>([]);
     const [displayedMeals, setDisplayedMeals] = useState<MealsType[]>([]);

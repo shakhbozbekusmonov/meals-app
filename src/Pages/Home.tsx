@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useVisibleMeals } from "../Hooks/useVisibleMeals";
 import { MEALS_FILTER, CATEGORY_LIST, LOADER } from "../Components";
+import useScrollTop from "../Hooks/useScrollTop";
 
 const Home = () => {
+    useScrollTop();
     const [isLoading, setLoading] = useState(true);
     const [visibleMeals, handleValue] = useVisibleMeals();
 
