@@ -8,11 +8,11 @@ const Home = () => {
 
     return (
         <div className='container'>
+            {isLoading && <LOADER />}
             <div className={`my-3 ${isLoading && "vh-100"}`}>
                 <div className='mb-3'>
                     <MEALS_FILTER onSubmit={handleValue} />
                 </div>
-
                 <CATEGORY_LIST
                     meals={visibleMeals}
                     isLoading={isLoading}
