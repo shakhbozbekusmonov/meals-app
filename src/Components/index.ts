@@ -8,3 +8,4 @@ export { default as MEALS_FILTER } from "./MealsFilter";
 export { default as MEALS_LIST } from "./MealsList";
 export { default as MEALS_ITEM } from "./MealsItem";
 export { default as LOGO } from "./Logo";
+export { default as BUTTON } from "./Button";

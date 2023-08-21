@@ -94,3 +94,15 @@ a {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
 }
+
+.meals-link:hover {
+    text-decoration: underline;
+    color: #00f;
+}
+
+@media only screen and (max-width: 768px) {
+    .meals-link {
+        color: rgb(70, 70, 204);
+        text-decoration: underline;
+    }
+}

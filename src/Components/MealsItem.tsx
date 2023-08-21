@@ -20,7 +20,7 @@ const MealsItem = ({
                     alt={strMeal}
                 />
                 <div className='card-body'>
-                    <Link to={`/meals/recipe/${idMeal}`}>
+                    <Link className="meals-link" to={`/meals/recipe/${idMeal}`}>
                         <h3 className='card-title h5'>{strMeal}</h3>
                     </Link>
                 </div>

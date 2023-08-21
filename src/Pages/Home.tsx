@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useVisibleMeals } from "../Hooks/useVisibleMeals";
-import { MEALS_FILTER, CATEGORY_LIST, LOADER } from "../Components";
+import { MEALS_FILTER, CATEGORY_LIST, LOADER, BUTTON } from "../Components";
 import useScrollTop from "../Hooks/useScrollTop";
 
 const Home = () => {
     useScrollTop();
     const [isLoading, setLoading] = useState(true);
-    const [visibleMeals, handleValue] = useVisibleMeals();
+    const [visibleMeals, meals, handleSeeMoreClick, handleValue] =
+        useVisibleMeals();
 
     return (
         <div className='container'>
@@ -20,6 +21,15 @@ const Home = () => {
                     isLoading={isLoading}
                     setLoading={setLoading}
                 />
+                {visibleMeals.length < meals.length && (
+                    <div className='d-flex justify-content-center'>
+                        <BUTTON
+                            text='See More'
+                            onClick={handleSeeMoreClick}
+                            className='btn btn-outline-primary mx-auto mb-5'
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );
