@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getMealsByFilterCategory } from "../Services/getData";
+import {
+    getMealsByFilterArea,
+    getMealsByFilterCategory,
+} from "../Services/getData";
 import MealsItem from "./MealsItem";
 import Button from "./Button";
 import useScrollTop from "../Hooks/useScrollTop";
+import CategoryFilter from "./CategoryFilter";
 
 export type MealsType = {
     idMeal: string;
@@ -14,16 +18,30 @@ export type MealsType = {
 const MealsCategory = () => {
     useScrollTop();
     const { category } = useParams();
+    const [showCategory, setShowCategory] = useState("");
+    const [showArea, setShowArea] = useState("");
     const [meals, setMeals] = useState<MealsType[]>([]);
     const [displayedMeals, setDisplayedMeals] = useState<MealsType[]>([]);
     const [mealsToShow, setMealsToShow] = useState<number>(8);
 
     useEffect(() => {
+        if (showCategory) {
+            getMealsByFilterCategory(showCategory.toLowerCase()).then((res) =>
+                setDisplayedMeals(res.meals)
+            );
+        }
+
+        if (showArea) {
+            getMealsByFilterArea(showArea.toLowerCase()).then((res) =>
+                setDisplayedMeals(res.meals)
+            );
+        }
+
         getMealsByFilterCategory(category).then((res) => {
             setMeals(res.meals);
             setDisplayedMeals(res.meals.slice(0, mealsToShow));
         });
-    }, [category, mealsToShow]);
+    }, [category, mealsToShow, showCategory, showArea]);
 
     const handleSeeMoreClick = () => {
         // Increment the number of meals to display when the "See More" button is clicked
@@ -33,6 +51,10 @@ const MealsCategory = () => {
 
     return (
         <div className='container'>
+            <CategoryFilter
+                onHandleChange={setShowCategory}
+                onHandleArea={setShowArea}
+            />
             <ul className={`row my-3 ${meals.length === 0 && "vh-100"}`}>
                 {displayedMeals.map((item) => (
                     <MealsItem key={item.idMeal} {...item} />
